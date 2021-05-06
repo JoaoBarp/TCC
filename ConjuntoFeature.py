@@ -14,7 +14,7 @@ import csv
 from sklearn.svm import SVC
 from sklearn.svm import LinearSVC
 
-SEED = 20
+SEED =  19963
 # load data
 filename = 'DataNorm.csv'
 perg = ['CountPalavrasBody','CountPalavrasTitle','Nfrasesbody','flesch_reading_ease','mediaCaracteresFrase','tamCod','interogacao','iniciaWH','subjectivity','polaridade','sumT','NpergFei','NresFei','Rotulo']
@@ -65,7 +65,7 @@ print(x_train)
 print(y_train)
 '''
 
-#clf=RandomForestClassifier(random_state=19889,n_jobs=-1)
+#clf=RandomForestClassifier(random_state=SEED,n_jobs=-1)
 clf=LinearSVC(random_state=SEED,verbose=1)
 
 #features estão ordenadas pela importancia
