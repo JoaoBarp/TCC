@@ -30,30 +30,34 @@ with open('valores.csv','r') as csv_file:
 
 print(mydict)
 '''
-print('Começou...')
+
+print('Começou ler...')
 dataframe=pd.read_csv(filename,sep='\t',usecols=perg2, encoding='utf-8')
-print('Acabou...')
+print('Acabou ler ...')
 dataframe=dataframe.dropna()
 
+
+
+#Lê o arquivo seque, que contem o seguencia de features mais importantes
 with open('seque.txt', 'r') as f:
     line=f.readlines()
     results=line[0].split(',')
     del results[-1]
 
 results.append('Rótulo')
-#print(results)
-#print(dataframe.head())
+#Realoca o dataframe pela ordem de features mais importantes
 dataframe=dataframe[results]
-#print(dataframe.head())
+
 dict={}
 classes=['C1','C2','C3','C4','C5','C6','C7']
+
 print('-------------------------------------------------')
 print('Começou o treino')
 
+#total de features
 features = ['N frases corpo','flesch_reading_ease','Média Caracteres Frase','Tamanho Código','Interogacão','Inicia com WH','Subjetividade','Polaridade','N de tags','N perguntas Feitas','N respostas Feitas','']
+#Aux vai incrmentanto, começa com as 2 mais importantes features
 aux= ['N Palavras corpo','N Palavras Título']
-
-
 
 '''
 print('-------------------------------------------------')
@@ -68,18 +72,21 @@ clf=LinearSVC(random_state=SEED,verbose=1)
 #começa com 2 principais e vai sendo adicionada as seguintes.
 for x in features:
 
+    #separa os dados em treino e teste utilizando dataframe[aux]
     x_train, x_test, y_train, y_test = train_test_split(dataframe[aux],dataframe['Rótulo'],test_size=0.3,random_state=SEED)
 
 
 
     clf.fit(x_train,y_train)
+    y_pred=clf.predict(x_test)
 
+    #print dos resultados e valores
     print('------------------------------------------------------------------------------------')
     print(aux)
-    y_pred=clf.predict(x_test)
     print('------------------------------------------------------------------------------------')
     print(classification_report(y_test, y_pred, target_names=classes))
     print('------------------------------------------------------------------------------------')
+    #salva o numero de features com os resultados(Como sei a ordem o numero já serve)
     dict[len(aux)]=classification_report(y_test, y_pred, target_names=classes)
     aux.append(x)
 
