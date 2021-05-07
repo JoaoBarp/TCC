@@ -17,8 +17,9 @@ from collections import Counter
 from sklearn.datasets import make_classification
 from imblearn.under_sampling import NearMiss
 
+SEED = 778
 # load data
-filename = 'DataNorm.csv'
+filename = 'C:\\Users\\joaor\\Downloads\\DataNorm.csv'
 perg = ['CountPalavrasBody','CountPalavrasTitle','Nfrasesbody','flesch_reading_ease','mediaCaracteresFrase','tamCod','interogacao','iniciaWH','subjectivity','polaridade','sumT','NpergFei','NresFei','Rotulo']
 perg2 = ['N Palavras corpo','N Palavras Título','N frases corpo','flesch_reading_ease','Média Caracteres Frase','Tamanho Código','Interogacão','Inicia com WH','Subjetividade','Polaridade','N de tags','N perguntas Feitas','N respostas Feitas','Rótulo']
 
@@ -37,16 +38,20 @@ dataframe=pd.read_csv(filename,sep='\t',usecols=perg2, encoding='utf-8')
 print('Acabou...')
 dataframe=dataframe.dropna()
 
+y_test=dataframe['Rótulo']
+x_test=dataframe.drop(columns=['Rótulo'])
 
-counter = Counter(dataframe['Rótulo'])
+counter = Counter(y_test)
 print(counter)
 undersample = NearMiss(version=1, n_neighbors=3)
-y = dataframe['Rótulo']
-X = dataframe.drop(columns=['Rótulo'])
-X, y = undersample.fit_resample(X, y)
+X, y = undersample.fit_resample(x_test, y_test)
 counter = Counter(y)
 print(counter)
-teste = pd.dataframe()
-teste['Rótulo']= y
-teste['N Palavras corpo','N Palavras Título','N frases corpo','flesch_reading_ease','Média Caracteres Frase','Tamanho Código','Interogacão','Inicia com WH','Subjetividade','Polaridade','N de tags','N perguntas Feitas','N respostas Feitas'] = x
-teste.to_csv('DataMenor.csv', sep='\t', encoding='utf-8')
+
+X['Rótulo'] = y
+
+print(X)
+
+#df['Rótulo']= y_test
+#df['N Palavras corpo','N Palavras Título','N frases corpo','flesch_reading_ease','Média Caracteres Frase','Tamanho Código','Interogacão','Inicia com WH','Subjetividade','Polaridade','N de tags','N perguntas Feitas','N respostas Feitas'] = x_test
+X.to_csv('C:\\Users\\joaor\\Downloads\\XXXXXXXXXXXXXXXXXr.csv', sep='\t', encoding='utf-8')
