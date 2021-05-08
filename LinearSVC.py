@@ -13,10 +13,13 @@ from sklearn.metrics import classification_report
 import csv
 from sklearn.svm import SVC
 from sklearn.svm import LinearSVC
+import sys
 
 SEED =  19963
 # load data
-filename = 'C:\\Users\\joaor\\Desktop\\Databases\\DataMENOR.csv'
+#filename = 'C:\\Users\\joaor\\Desktop\\Databases\\5Class.csv'
+filename='C:\\Users\\joaor\\Desktop\\Databases\\' + sys.argv[1]
+filesalve='C:\\Users\\joaor\\Desktop\\' + sys.argv[2]
 perg = ['CountPalavrasBody','CountPalavrasTitle','Nfrasesbody','flesch_reading_ease','mediaCaracteresFrase','tamCod','interogacao','iniciaWH','subjectivity','polaridade','sumT','NpergFei','NresFei','Rotulo']
 perg2 = ['N Palavras corpo','N Palavras Título','N frases corpo','flesch_reading_ease','Média Caracteres Frase','Tamanho Código','Interogacão','Inicia com WH','Subjetividade','Polaridade','N de tags','N perguntas Feitas','N respostas Feitas','Rótulo']
 
@@ -49,7 +52,7 @@ results.append('Rótulo')
 dataframe=dataframe[results]
 
 dict={}
-classes=['C1','C2','C3','C4','C5','C6','C7']
+classes=['C1','C3','C4','C5','C6']
 
 print('-------------------------------------------------')
 print('Começou o treino')
@@ -93,7 +96,7 @@ for x in features:
 
 
 #-------------------------------------Salvando-------------------------------------------------------------
-with open('C:\\Users\\joaor\\Desktop\\valoresDatamenorLinearSVC.csv', 'w') as csv_file:
+with open(filesalve, 'w') as csv_file:
     writer = csv.writer(csv_file)
     for key, value in dict.items():
        writer.writerow([key, value])
