@@ -16,7 +16,7 @@ from sklearn.svm import LinearSVC
 
 SEED =  19963
 # load data
-filename = 'C:\\Users\\joaor\\Desktop\\XX.csv'
+filename = 'C:\\Users\\joaor\\Desktop\\Databases\\DataMENOR.csv'
 perg = ['CountPalavrasBody','CountPalavrasTitle','Nfrasesbody','flesch_reading_ease','mediaCaracteresFrase','tamCod','interogacao','iniciaWH','subjectivity','polaridade','sumT','NpergFei','NresFei','Rotulo']
 perg2 = ['N Palavras corpo','N Palavras Título','N frases corpo','flesch_reading_ease','Média Caracteres Frase','Tamanho Código','Interogacão','Inicia com WH','Subjetividade','Polaridade','N de tags','N perguntas Feitas','N respostas Feitas','Rótulo']
 
@@ -55,9 +55,10 @@ print('-------------------------------------------------')
 print('Começou o treino')
 
 #total de features
-features = ['N frases corpo','flesch_reading_ease','Média Caracteres Frase','Tamanho Código','Interogacão','Inicia com WH','Subjetividade','Polaridade','N de tags','N perguntas Feitas','N respostas Feitas','']
+features = ['Tamanho Código','flesch_reading_ease','N frases corpo','Interogacão','Inicia com WH','N perguntas Feitas','N Palavras Título','Subjetividade','N respostas Feitas','Média Caracteres Frase','Polaridade','']
 #Aux vai incrmentanto, começa com as 2 mais importantes features
-aux= ['N Palavras corpo','N Palavras Título']
+aux= ['N Palavras corpo','N de tags']
+
 
 '''
 print('-------------------------------------------------')
@@ -92,7 +93,7 @@ for x in features:
 
 
 #-------------------------------------Salvando-------------------------------------------------------------
-with open('C:\\Users\\joaor\\Desktop\\valoresDatamenor.csv', 'w') as csv_file:
+with open('C:\\Users\\joaor\\Desktop\\valoresDatamenorLinearSVC.csv', 'w') as csv_file:
     writer = csv.writer(csv_file)
     for key, value in dict.items():
        writer.writerow([key, value])
