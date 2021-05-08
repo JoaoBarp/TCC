@@ -52,7 +52,7 @@ results.append('Rótulo')
 dataframe=dataframe[results]
 
 dict={}
-classes=['C1','C3','C4','C5','C6']
+classes=['C1','C2','C3','C4','C5','C6','C7']
 
 print('-------------------------------------------------')
 print('Começou o treino')
