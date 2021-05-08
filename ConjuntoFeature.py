@@ -16,7 +16,7 @@ from sklearn.svm import LinearSVC
 
 SEED =  19963
 # load data
-filename = 'DataNorm.csv'
+filename = 'C:\\Users\\joaor\\Desktop\\XX.csv'
 perg = ['CountPalavrasBody','CountPalavrasTitle','Nfrasesbody','flesch_reading_ease','mediaCaracteresFrase','tamCod','interogacao','iniciaWH','subjectivity','polaridade','sumT','NpergFei','NresFei','Rotulo']
 perg2 = ['N Palavras corpo','N Palavras Título','N frases corpo','flesch_reading_ease','Média Caracteres Frase','Tamanho Código','Interogacão','Inicia com WH','Subjetividade','Polaridade','N de tags','N perguntas Feitas','N respostas Feitas','Rótulo']
 
@@ -92,7 +92,7 @@ for x in features:
 
 
 #-------------------------------------Salvando-------------------------------------------------------------
-with open('valores.csv', 'w') as csv_file:
+with open('C:\\Users\\joaor\\Desktop\\valoresDatamenor.csv', 'w') as csv_file:
     writer = csv.writer(csv_file)
     for key, value in dict.items():
        writer.writerow([key, value])

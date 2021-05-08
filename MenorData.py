@@ -17,9 +17,9 @@ from collections import Counter
 from sklearn.datasets import make_classification
 from imblearn.under_sampling import NearMiss
 
-SEED = 778
+SEED =  19963
 # load data
-filename = 'C:\\Users\\joaor\\Downloads\\DataNorm.csv'
+filename = 'C:\\Users\\joaor\\Desktop\\TESTE\\DataNorm.csv'
 perg = ['CountPalavrasBody','CountPalavrasTitle','Nfrasesbody','flesch_reading_ease','mediaCaracteresFrase','tamCod','interogacao','iniciaWH','subjectivity','polaridade','sumT','NpergFei','NresFei','Rotulo']
 perg2 = ['N Palavras corpo','N Palavras Título','N frases corpo','flesch_reading_ease','Média Caracteres Frase','Tamanho Código','Interogacão','Inicia com WH','Subjetividade','Polaridade','N de tags','N perguntas Feitas','N respostas Feitas','Rótulo']
 
@@ -43,7 +43,7 @@ x_test=dataframe.drop(columns=['Rótulo'])
 
 counter = Counter(y_test)
 print(counter)
-undersample = NearMiss(version=1, n_neighbors=3)
+undersample = NearMiss(n_jobs=6)
 X, y = undersample.fit_resample(x_test, y_test)
 counter = Counter(y)
 print(counter)
@@ -54,4 +54,4 @@ print(X)
 
 #df['Rótulo']= y_test
 #df['N Palavras corpo','N Palavras Título','N frases corpo','flesch_reading_ease','Média Caracteres Frase','Tamanho Código','Interogacão','Inicia com WH','Subjetividade','Polaridade','N de tags','N perguntas Feitas','N respostas Feitas'] = x_test
-X.to_csv('C:\\Users\\joaor\\Downloads\\XXXXXXXXXXXXXXXXXr.csv', sep='\t', encoding='utf-8')
+X.to_csv('C:\\Users\\joaor\\Desktop\\XX.csv', sep='\t', encoding='utf-8')
