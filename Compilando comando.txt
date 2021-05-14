@@ -1,0 +1,6 @@
+Para compilar o Random forest utilize o comando:
+python RandomForest.py database.csv nomeArquivosalvo.csv
+
+
+O primeiro parametro é o arquivo de treinamento.
+O segundo é o nome do arquivo para salvar os resultados em csv.
