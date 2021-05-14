@@ -86,10 +86,11 @@ for x in features:
     print('------------------------------------------------------------------------------------')
     print(aux)
     print('------------------------------------------------------------------------------------')
-    print(classification_report(y_test, y_pred, target_names=classes))
+    x=classification_report(y_test, y_pred, target_names=classes)
+    print(x)
     print('------------------------------------------------------------------------------------')
     #salva o numero de features com os resultados(Como sei a ordem o numero já serve)
-    dict[len(aux)]=classification_report(y_test, y_pred, target_names=classes)
+    dict[len(aux)] = x
     aux.append(x)
 
 

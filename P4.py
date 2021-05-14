@@ -20,16 +20,21 @@ from lxml import etree
 import psutil
 import statistics
 
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestClassifier
+from sklearn import metrics
+from sklearn.metrics import classification_report
 
+SEED =  19963
 perg = ['OwnerUserId','CreationDate','Ntags','TemCodigo','CountPalavrasBody','CountPalavrasTitle','Nfrasesbody','flesch_reading_ease','mediaCaracteresFrase','tamCod','interogacao','iniciaWH','subjectivity','polaridade','sumT','NpergFei','NresFei','Minutos']
 
 print('Começou...')
-Perguntas=pd.read_csv('DataFramePerg.csv',sep='\t',usecols=perg)
+Perguntas=pd.read_csv('C:\\Users\\joaor\\Desktop\\Databases\\DataFramePerg.csv',sep='\t',usecols=perg)
 Perguntas=Perguntas.loc[(Perguntas.Minutos >= -1)]
 print('Acabou...')
 
 
-
+'''
 Perguntas.loc[(Perguntas.Minutos >= 0) & (Perguntas.Minutos <= 480),'Rotulo'] = 'C1'
 Perguntas.loc[(Perguntas.Minutos > 480) & (Perguntas.Minutos <= 960),'Rotulo'] = 'C2'
 Perguntas.loc[(Perguntas.Minutos > 960) & (Perguntas.Minutos <= 1440),'Rotulo'] = 'C3'
@@ -37,6 +42,17 @@ Perguntas.loc[(Perguntas.Minutos > 1440) & (Perguntas.Minutos < 2280),'Rotulo'] 
 Perguntas.loc[(Perguntas.Minutos > 2280) & (Perguntas.Minutos <= 5790),'Rotulo'] = 'C5'
 Perguntas.loc[(Perguntas.Minutos > 5790),'Rotulo'] = 'C6'
 Perguntas.loc[(Perguntas.Minutos == -1) ,'Rotulo'] = 'C7'
+'''
+
+Perguntas.loc[(Perguntas.Minutos >= 0) & (Perguntas.Minutos <= 960),'Rotulo'] = 1
+Perguntas.loc[(Perguntas.Minutos > 960) & (Perguntas.Minutos <= 2280),'Rotulo'] = 2
+Perguntas.loc[(Perguntas.Minutos > 2280) & (Perguntas.Minutos <= 5790),'Rotulo'] = 3
+Perguntas.loc[(Perguntas.Minutos > 5790),'Rotulo'] = 4
+Perguntas.loc[(Perguntas.Minutos == -1) ,'Rotulo'] = 5
+
+
+
+
 
 Perguntas = Perguntas.drop(columns=['OwnerUserId'])
 Perguntas = Perguntas.drop(columns=['CreationDate'])
@@ -44,9 +60,14 @@ Perguntas = Perguntas.drop(columns=['Ntags'])
 Perguntas = Perguntas.drop(columns=['TemCodigo'])
 Perguntas = Perguntas.drop(columns=['Minutos'])
 
+x_train, x_test, y_train, y_test = train_test_split(Perguntas.drop(columns=['Rotulo']),Perguntas['Rotulo'],test_size=0.3,random_state=SEED)
 
-print(Perguntas.head())
+x_test['Rotulo'] =  y_test
 
 
 
-Perguntas.to_csv('DataParaTreino.csv', sep='\t', encoding='utf-8')
+
+
+
+
+x_test.to_csv('C:\\Users\\joaor\\Desktop\\Databases\\Data5class.csv', sep='\t', encoding='utf-8')
