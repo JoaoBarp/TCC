@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 from sklearn.preprocessing import MinMaxScaler
 
-filename = 'DataParaTreino.csv'
+filename = 'C:\\Users\\joaor\\Desktop\\Databases\\Data5class.csv'
 
 scaler = MinMaxScaler()
 
@@ -21,4 +21,4 @@ dataframe[['N Palavras corpo','N Palavras Título','N frases corpo','flesch_read
 
 print(dataframe.head())
 
-dataframe.to_csv('DataNorm.csv', sep='\t', encoding='utf-8')
+dataframe.to_csv('C:\\Users\\joaor\\Desktop\\Databases\\Data5class.csv', sep='\t', encoding='utf-8')
