@@ -72,7 +72,7 @@ print(y_train)
 
 clf=RandomForestClassifier(random_state=SEED,n_jobs=-1)
 
-X_tr, X_te, y_train, y_test = train_test_split(dataframe,dataframe['Rotulo'],test_size=0.3,random_state=SEED)
+X_tr, X_te, y_train, y_test = train_test_split(dataframe.drop(columns=['Rotulo']),dataframe['Rotulo'],test_size=0.3,random_state=SEED)
 
 #features estão ordenadas pela importancia
 #começa com 2 principais e vai sendo adicionada as seguintes.
