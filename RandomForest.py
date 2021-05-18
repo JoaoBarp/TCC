@@ -53,7 +53,7 @@ results.append('Rótulo')
 dataframe=dataframe[results]
 
 dict={}
-classes=['C1','C2','C3','C4','C5','C6','C7']
+classes=[1,2,3,4,5]
 
 print('-------------------------------------------------')
 print('Começou o treino')
@@ -88,11 +88,11 @@ for x in features:
     print('------------------------------------------------------------------------------------')
     print(aux)
     print('------------------------------------------------------------------------------------')
-    x=classification_report(y_test, y_pred, target_names=classes)
-    print(x)
+    q=classification_report(y_test, y_pred, labels=[1, 2, 3, 4, 5])
+    print(q)
     print('------------------------------------------------------------------------------------')
     #salva o numero de features com os resultados(Como sei a ordem o numero já serve)
-    dict[len(aux)] = x
+    dict[len(aux)] = q
     aux.append(x)
 
 

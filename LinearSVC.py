@@ -19,7 +19,7 @@ SEED =  19963
 # load data
 #filename = 'C:\\Users\\joaor\\Desktop\\Databases\\5Class.csv'
 filename='C:\\Users\\joaor\\Desktop\\Databases\\' + sys.argv[1]
-filesalve='C:\\Users\\joaor\\Desktop\\' + sys.argv[2]
+filesalve='C:\\Users\\joaor\\Desktop\\TCC\\Result\\' + sys.argv[2]
 perg = ['CountPalavrasBody','CountPalavrasTitle','Nfrasesbody','flesch_reading_ease','mediaCaracteresFrase','tamCod','interogacao','iniciaWH','subjectivity','polaridade','sumT','NpergFei','NresFei','Rotulo']
 perg2 = ['N Palavras corpo','N Palavras Título','N frases corpo','flesch_reading_ease','Média Caracteres Frase','Tamanho Código','Interogacão','Inicia com WH','Subjetividade','Polaridade','N de tags','N perguntas Feitas','N respostas Feitas','Rótulo']
 
@@ -52,7 +52,7 @@ results.append('Rótulo')
 dataframe=dataframe[results]
 
 dict={}
-classes=['C1','C2','C3','C4','C5','C6','C7']
+classes=[1,2,3,4,5]
 
 print('-------------------------------------------------')
 print('Começou o treino')
@@ -84,14 +84,17 @@ for x in features:
     clf.fit(x_train,y_train)
     y_pred=clf.predict(x_test)
 
+    q = classification_report(y_test, y_pred,labels=[1, 2, 3, 4, 5])
+
     #print dos resultados e valores
     print('------------------------------------------------------------------------------------')
     print(aux)
     print('------------------------------------------------------------------------------------')
-    print(classification_report(y_test, y_pred, target_names=classes))
+
+    print(q)
     print('------------------------------------------------------------------------------------')
     #salva o numero de features com os resultados(Como sei a ordem o numero já serve)
-    dict[len(aux)]=classification_report(y_test, y_pred, target_names=classes)
+    dict[len(aux)]=q
     aux.append(x)
 
 
