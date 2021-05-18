@@ -17,7 +17,7 @@ import sys
 SEED =  19963
 # load data
 filename='C:\\Users\\joaor\\Desktop\\Databases\\' + sys.argv[1]
-filesalve='C:\\Users\\joaor\\Desktop\\TCC\\Result' + sys.argv[2]
+filesalve='C:\\Users\\joaor\\Desktop\\TCC\\Result\\' + sys.argv[2]
 #filename='/media/Lun02_Raid0/joaob/'+sys.argv[1]
 #filesalve='Result/'+sys.argv[2]
 #perg = ['CountPalavrasBody','CountPalavrasTitle','Nfrasesbody','flesch','mediaCaracteresFrase','tamCod','interogacao','iniciaWH','subjectivity','polaridade','sumT','NpergFei','NresFei','Rotulo']
