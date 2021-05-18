@@ -64,6 +64,8 @@ x_train, x_test, y_train, y_test = train_test_split(Perguntas.drop(columns=['Rot
 
 x_test['Rotulo'] =  y_test
 
+perg2 = ['N Palavras corpo','N Palavras Titulo','N frases corpo','flesch','Media Caracteres Frase','Tamanho Codigo','Interogacao','Inicia com WH','Subjetividade','Polaridade','N de tags','N perguntas Feitas','N respostas Feitas','Rotulo']
+x_test.columns=perg2
 
 
 
