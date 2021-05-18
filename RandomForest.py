@@ -17,11 +17,11 @@ import sys
 
 SEED =  19963
 # load data
-#filename='C:\\Users\\joaor\\Desktop\\Databases\\' + sys.argv[1]
-#filesalve='C:\\Users\\joaor\\Desktop\\TCC\\Result' + sys.argv[2]
-filename='/media/Lun02_Raid0/joaob/'+sys.argv[1]
-filesalve='Result/'+sys.argv[2]
-perg = ['CountPalavrasBody','CountPalavrasTitle','Nfrasesbody','flesch','mediaCaracteresFrase','tamCod','interogacao','iniciaWH','subjectivity','polaridade','sumT','NpergFei','NresFei','Rotulo']
+filename='C:\\Users\\joaor\\Desktop\\Databases\\' + sys.argv[1]
+filesalve='C:\\Users\\joaor\\Desktop\\TCC\\Result' + sys.argv[2]
+#filename='/media/Lun02_Raid0/joaob/'+sys.argv[1]
+#filesalve='Result/'+sys.argv[2]
+#perg = ['CountPalavrasBody','CountPalavrasTitle','Nfrasesbody','flesch','mediaCaracteresFrase','tamCod','interogacao','iniciaWH','subjectivity','polaridade','sumT','NpergFei','NresFei','Rotulo']
 perg2 = ['N Palavras corpo','N Palavras Titulo','N frases corpo','flesch','Media Caracteres Frase','Tamanho Codigo','Interogacao','Inicia com WH','Subjetividade','Polaridade','N de tags','N perguntas Feitas','N respostas Feitas','Rotulo']
 
 '''
@@ -55,14 +55,17 @@ dataframe=dataframe[results]
 
 dict={}
 classes=[1,2,3,4,5]
+#classes=['C1','C2','C3','C4','C5','C6','C7']
 
 print('-------------------------------------------------')
 print('Começou o treino')
 
 #total de features
-features = ['N frases corpo','flesch','Media Caracteres Frase','Tamanho Codigo','Interogacao','Inicia com WH','Subjetividade','Polaridade','N de tags','N perguntas Feitas','N respostas Feitas','']
+#features = ['N frases corpo','flesch','Media Caracteres Frase','Tamanho Codigo','Interogacao','Inicia com WH','Subjetividade','Polaridade','N de tags','N perguntas Feitas','N respostas Feitas','']
+features = ['Tamanho Codigo','flesch','N frases corpo','Interogacao','Inicia com WH','N perguntas Feitas','N Palavras Titulo','Subjetividade','N respostas Feitas','Media Caracteres Frase','Polaridade','']
+
 #Aux vai incrmentanto, começa com as 2 mais importantes features
-aux= ['N Palavras corpo','N Palavras Titulo']
+aux= ['N Palavras corpo','N de tags']
 
 '''
 print('-------------------------------------------------')
@@ -92,7 +95,8 @@ for i,x in enumerate(features):
     #print(classification_report(y_test, y_pred, target_names=classes))
     print('Executando o classification_report')
     #salva o numero de features com os resultados(Como sei a ordem o numero já serve)
-    dict[len(aux)]=classification_report(y_test, y_pred, target_names=classes)
+    dict[len(aux)]=classification_report(y_test, y_pred, labels=classes)
+    print(dict[len(aux)])
     aux.append(x)
 
 
