@@ -19,11 +19,14 @@ from xml.etree.ElementTree import iterparse
 from lxml import etree
 import psutil
 import statistics
+from sklearn.preprocessing import MinMaxScaler
 
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn import metrics
 from sklearn.metrics import classification_report
+
+scaler = MinMaxScaler()
 
 SEED =  19963
 perg = ['OwnerUserId','CreationDate','Ntags','TemCodigo','CountPalavrasBody','CountPalavrasTitle','Nfrasesbody','flesch_reading_ease','mediaCaracteresFrase','tamCod','interogacao','iniciaWH','subjectivity','polaridade','sumT','NpergFei','NresFei','Minutos']
@@ -67,8 +70,15 @@ x_test['Rotulo'] =  y_test
 perg2 = ['N Palavras corpo','N Palavras Titulo','N frases corpo','flesch','Media Caracteres Frase','Tamanho Codigo','Interogacao','Inicia com WH','Subjetividade','Polaridade','N de tags','N perguntas Feitas','N respostas Feitas','Rotulo']
 x_test.columns=perg2
 
+print(x_test.head())
 
 
+x_test[['N Palavras corpo','N Palavras Titulo','N frases corpo','flesch','Media Caracteres Frase','Tamanho Codigo','Interogacao','Inicia com WH','Subjetividade','Polaridade','N de tags','N perguntas Feitas','N respostas Feitas']] = scaler.fit_transform(x_test[['N Palavras corpo','N Palavras Titulo','N frases corpo','flesch','Media Caracteres Frase','Tamanho Codigo','Interogacao','Inicia com WH','Subjetividade','Polaridade','N de tags','N perguntas Feitas','N respostas Feitas']])
+
+x_test['N de tags'] = x_test['N de tags']*2
+x_test['N Palavras corpo'] = x_test['N Palavras corpo']*2
+
+print(x_test.head())
 
 
 
