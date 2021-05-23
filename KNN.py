@@ -1,3 +1,4 @@
+# Feature Selection with Univariate Statistical Tests
 from pandas import read_csv
 from numpy import set_printoptions
 from sklearn.feature_selection import SelectKBest
@@ -13,6 +14,8 @@ import csv
 from sklearn.svm import SVC
 from sklearn.svm import LinearSVC
 import sys
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.neighbors import KNeighborsClassifier
 
 SEED =  19963
 # load data
@@ -39,6 +42,8 @@ print(filename)
 dataframe=pd.read_csv(filename,sep='\t',usecols=perg2, encoding='utf-8')
 print('Acabou ler ...')
 dataframe=dataframe.dropna()
+
+print(dataframe.groupby(['Rotulo']).size())
 
 
 
@@ -72,7 +77,7 @@ print(x_train)
 print(y_train)
 '''
 
-clf=clf=LinearSVC(random_state=SEED,verbose=1)
+clf=KNeighborsClassifier()
 
 X_tr, X_te, y_train, y_test = train_test_split(dataframe.drop(columns=['Rotulo']),dataframe['Rotulo'],test_size=0.3,random_state=SEED)
 

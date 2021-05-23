@@ -18,7 +18,7 @@ import sys
 SEED =  19963
 # load data
 filename='C:\\Users\\joaor\\Desktop\\Databases\\' + sys.argv[1]
-filesalve='C:\\Users\\joaor\\Desktop\\TCC\\Result' + sys.argv[2]
+filesalve='C:\\Users\\joaor\\Desktop\\TCC\\Result\\' + sys.argv[2]
 #filename='/media/Lun02_Raid0/joaob/'+sys.argv[1]
 #filesalve='Result/'+sys.argv[2]
 #perg = ['CountPalavrasBody','CountPalavrasTitle','Nfrasesbody','flesch','mediaCaracteresFrase','tamCod','interogacao','iniciaWH','subjectivity','polaridade','sumT','NpergFei','NresFei','Rotulo']
@@ -41,6 +41,8 @@ dataframe=pd.read_csv(filename,sep='\t',usecols=perg2, encoding='utf-8')
 print('Acabou ler ...')
 dataframe=dataframe.dropna()
 
+print(dataframe.groupby(['Rotulo']).size())
+
 
 
 #Lê o arquivo seque, que contem o seguencia de features mais importantes
@@ -54,7 +56,7 @@ results.append('Rotulo')
 dataframe=dataframe[results]
 
 dict={}
-classes=[1,2,3,4,5]
+classes=[1,2,3,4]
 #classes=['C1','C2','C3','C4','C5','C6','C7']
 
 print('-------------------------------------------------')
