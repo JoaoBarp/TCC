@@ -13,7 +13,7 @@
 3 = 1205715   
 4 = 2418457  
 
-## Data4classNearmiss.csv : Database parcial após processo utilizando NearMiss  
+## Data4classNearmiss.csv : Database reduzido após processo utilizando NearMiss  
 ### Classes  
 - (Minutos >= 0 & Minutos <= 1440) = 1  
 - (Minutos >1440) & (Minutos <= 10080) = 2  
