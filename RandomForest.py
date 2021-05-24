@@ -46,7 +46,7 @@ print(dataframe.groupby(['Rotulo']).size())
 
 
 #Lê o arquivo seque, que contem o seguencia de features mais importantes
-with open('seque.txt', 'r') as f:
+with open('seque4class.txt', 'r') as f:
     line=f.readlines()
     results=line[0].split(',')
     del results[-1]
@@ -63,11 +63,10 @@ print('-------------------------------------------------')
 print('Começou o treino')
 
 #total de features
-#features = ['N frases corpo','flesch','Media Caracteres Frase','Tamanho Codigo','Interogacao','Inicia com WH','Subjetividade','Polaridade','N de tags','N perguntas Feitas','N respostas Feitas','']
-features = ['Tamanho Codigo','flesch','N frases corpo','Interogacao','Inicia com WH','N perguntas Feitas','N Palavras Titulo','Subjetividade','N respostas Feitas','Media Caracteres Frase','Polaridade','']
-
+#features = ['Tamanho Codigo','flesch','N frases corpo','Interogacao','Inicia com WH','N perguntas Feitas','N Palavras Titulo','Subjetividade','N respostas Feitas','Media Caracteres Frase','Polaridade','']
+features = ['flesch','Tamanho Codigo','N perguntas Feitas','Media Caracteres Frase','N frases corpo','N de tags','Polaridade','N Palavras Titulo','Interogacao','Inicia com WH','N respostas Feitas','']
 #Aux vai incrmentanto, começa com as 2 mais importantes features
-aux= ['N Palavras corpo','N de tags']
+aux= ['Subjetividade','N Palavras corpo']
 
 '''
 print('-------------------------------------------------')
