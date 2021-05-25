@@ -87,7 +87,7 @@ for i,x in enumerate(features):
     x_test=X_te[aux]
 
     clf.fit(x_train,y_train)
-    y_pred=clf.predict(x_train)
+    y_pred=clf.predict(x_test)
 
     #print dos resultados e valores
     print(i,'> ---------------------------------------------------------------------------------')
@@ -96,7 +96,7 @@ for i,x in enumerate(features):
     #print(classification_report(y_test, y_pred, target_names=classes))
     print('Executando o classification_report')
     #salva o numero de features com os resultados(Como sei a ordem o numero já serve)
-    dict[len(aux)]=classification_report(y_train, y_pred, labels=classes)
+    dict[len(aux)]=classification_report(y_test, y_pred, labels=classes)
     print(dict[len(aux)])
     aux.append(x)
 
