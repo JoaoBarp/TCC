@@ -28,3 +28,15 @@ df = pd.DataFrame()
 df["y"] = y
 df["comp-1"] = z[:,0]
 df["comp-2"] = z[:,1]
+
+sns.scatterplot(x="comp-1", y="comp-2", hue=df.y.tolist(),
+                palette=sns.color_palette("hls", 10),
+                data=df).set(title="MNIST data T-SNE projection")
+
+plt.scatter(df[:,0],df[:,1], c=y_new)
+plt.title('Horse Colic - PCA')
+#plt.title('Horse Colic - TSNE')
+plt.xlabel('Column 0')
+plt.ylabel('Column 1')
+plt.legend()
+plt.show()
