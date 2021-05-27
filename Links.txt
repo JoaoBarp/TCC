@@ -1,1 +1,9 @@
 https://www.google.com/search?client=firefox-b-d&q=techniques+increase+performance+machine+learning+
+
+https://scholar.google.com.br/scholar?q=clustering+data+to+training&hl=pt-BR&as_sdt=0&as_vis=1&oi=scholart
+
+https://towardsdatascience.com/the-art-of-effective-visualization-of-multi-dimensional-data-6c7202990c57
+
+https://arxiv.org/pdf/1608.06048.pdf
+
+https://translate.google.com/translate?hl=pt-BR&sl=en&u=https://imbalanced-learn.org/dev/references/generated/imblearn.under_sampling.NearMiss.html&prev=search&pto=aue
