@@ -1,4 +1,3 @@
-# Feature Selection with Univariate Statistical Tests
 from pandas import read_csv
 from numpy import set_printoptions
 from sklearn.feature_selection import SelectKBest, SelectFwe, GenericUnivariateSelect, SelectFdr, SelectFpr
