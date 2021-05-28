@@ -7,3 +7,8 @@ https://towardsdatascience.com/the-art-of-effective-visualization-of-multi-dimen
 https://arxiv.org/pdf/1608.06048.pdf
 
 https://translate.google.com/translate?hl=pt-BR&sl=en&u=https://imbalanced-learn.org/dev/references/generated/imblearn.under_sampling.NearMiss.html&prev=search&pto=aue
+
+https://www.google.com/search?q=tsne+python+time&sxsrf=ALeKk02py-rrbVY9pgVKigD8UXdWvE1ogw%3A1622227372575&ei=rDmxYP25IvKj5OUPzdu40A0&oq=tsne+python+time&gs_lcp=Cgdnd3Mtd2l6EAMyCAghEBYQHRAeOgcIIxCwAxAnOgcIABBHELADOgQIIxAnOgQIABANOgQILhANOgoIABDHARCvARANOg0IABCxAxDHARCjAhANOgcIABDJAxANOgcILhCxAxANOgsIABDHARCvARDLAToFCAAQywE6BwgAEAoQywE6BggjECcQEzoCCAA6BggAEBYQHlDHPFiwbGDacGgBcAJ4AIABqgGIAd8VkgEEMS4yNJgBAKABAaoBB2d3cy13aXrIAQnAAQE&sclient=gws-wiz&ved=0ahUKEwj9v6Xyg-3wAhXyEbkGHc0tDtoQ4dUDCA4&uact=5
+
+
+https://pypi.org/project/tsne/
