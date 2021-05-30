@@ -20,7 +20,7 @@ from lxml import etree
 import psutil
 import statistics
 from sklearn.preprocessing import MinMaxScaler
-
+from sklearn.decomposition import PCA
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn import metrics
@@ -40,12 +40,16 @@ print('Acabou ler ...')
 X=dataframe.drop(columns=['Rotulo'])
 y=dataframe['Rotulo']
 
-tsne = TSNE(n_components=2, verbose=1,n_jobs=-1, random_state=SEED)
-z = tsne.fit_transform(X)
+#tsne = TSNE(n_components=2, verbose=1,n_jobs=-1, random_state=SEED)
+pca = PCA(n_components=2,svd_solver='auto', random_state=SEED)
 
+#z = tsne.fit_transform(X)
+z = pca.fit_transform(X)
 
 plt.scatter(z[:,0],z[:,1], c=y)
-plt.title('TSNE')
+plt.ylim(0, 1)
+plt.xlim(0,1)
+plt.title('PCA')
 plt.xlabel('Column 0')
 plt.ylabel('Column 1')
 plt.legend()
