@@ -40,11 +40,11 @@ print('Acabou ler ...')
 X=dataframe.drop(columns=['Rotulo'])
 y=dataframe['Rotulo']
 
-#tsne = TSNE(n_components=2, verbose=1,n_jobs=-1, random_state=SEED)
-pca = PCA(n_components=2,svd_solver='auto', random_state=SEED)
+tsne = TSNE(n_components=2, verbose=1,n_jobs=-1, random_state=SEED)
+#pca = PCA(n_components=2,svd_solver='auto', random_state=SEED)
 
-#z = tsne.fit_transform(X)
-z = pca.fit_transform(X)
+z = tsne.fit_transform(X)
+#z = pca.fit_transform(X)
 
 plt.scatter(z[:,0],z[:,1], c=y)
 plt.ylim(0, 1)

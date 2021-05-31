@@ -56,7 +56,7 @@ results.append('Rotulo')
 dataframe=dataframe[results]
 
 dict={}
-classes=[1,2,3,4]
+classes=[1,2,3,4,5,6,7]
 #classes=['C1','C2','C3','C4','C5','C6','C7']
 
 print('-------------------------------------------------')
