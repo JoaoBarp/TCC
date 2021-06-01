@@ -35,6 +35,8 @@ print(filename)
 dataframe=pd.read_csv(filename,sep='\t',usecols=perg2, encoding='utf-8')
 print('Acabou ler ...')
 
+#x_train, x_test, y_train, y_test = train_test_split(dataframe.drop(columns=['Rotulo']),dataframe['Rotulo'],test_size=0.00,random_state=SEED)
+#x_test['Rotulo'] =  y_test
 
 
 X=dataframe.drop(columns=['Rotulo'])
@@ -47,8 +49,8 @@ z = tsne.fit_transform(X)
 #z = pca.fit_transform(X)
 
 plt.scatter(z[:,0],z[:,1], c=y)
-plt.ylim(0, 1)
-plt.xlim(0,1)
+#plt.ylim(0, 1)
+#plt.xlim(0,1)
 plt.title('PCA')
 plt.xlabel('Column 0')
 plt.ylabel('Column 1')
