@@ -16,6 +16,9 @@ https://pypi.org/project/tsne/
 ------------------------------------
 De hj
 ------------------------------------
+https://mljar.com/blog/random-forest-overfitting/
+
+https://stackoverflow.com/questions/20463281/how-do-i-solve-overfitting-in-random-forest-of-python-sklearn
 
 https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.ExtraTreesClassifier.html#sklearn.ensemble.ExtraTreesClassifier
 
