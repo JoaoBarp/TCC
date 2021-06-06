@@ -83,7 +83,7 @@ y = dataframe['Rotulo']
 X = dataframe.drop(columns=['Rotulo'])
 X = X[aux]
 
-clf=RandomForestClassifier(random_state=SEED,n_jobs=-1)
+clf=RandomForestClassifier(random_state=SEED,n_jobs=6)
 
 
 param = {
@@ -91,7 +91,6 @@ param = {
     'min_samples_split': [2, 3 ,4],
     'max_depth': [10,None,2,5],
     'min_samples_leaf':[1, 2, 3, 4],
-    'max_leaf_nodes':[None,2,3,4]
 }
 
 #scorer = {'precision micro' : make_scorer(precision_score, average = 'micro'),'precision macro' : make_scorer(precision_score, average = 'macro'),
