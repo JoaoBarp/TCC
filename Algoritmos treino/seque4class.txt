@@ -1,1 +1,1 @@
-Subjetividade,N Palavras corpo,flesch,Tamanho Codigo,N perguntas Feitas,Media Caracteres Frase,N frases corpo,N de tags,Polaridade,N Palavras Titulo,Interogacao,Inicia com WH,N respostas Feitas,
+N Palavras corpo,N de tags,Tamanho Codigo,N frases corpo,Interogacao,flesch,Inicia com WH,N perguntas Feitas,N Palavras Titulo,N respostas Feitas,Subjetividade,Polaridade,Media Caracteres Frase,
