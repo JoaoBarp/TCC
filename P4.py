@@ -34,9 +34,11 @@ perg = ['OwnerUserId','CreationDate','Ntags','TemCodigo','CountPalavrasBody','Co
 print('Começou...')
 Perguntas=pd.read_csv('C:\\Users\\joaor\\Desktop\\Databases\\DataFramePerg.csv',sep='\t',usecols=perg)
 Perguntas=Perguntas.loc[(Perguntas.Minutos >= -1)]
+dataframe=dataframe.dropna()
 print('Acabou...')
 
 
+'''
 Perguntas.loc[(Perguntas.Minutos >= 0) & (Perguntas.Minutos <= 480),'Rotulo'] = 1
 Perguntas.loc[(Perguntas.Minutos > 480) & (Perguntas.Minutos <= 960),'Rotulo'] = 2
 Perguntas.loc[(Perguntas.Minutos > 960) & (Perguntas.Minutos <= 1440),'Rotulo'] = 3
@@ -44,14 +46,14 @@ Perguntas.loc[(Perguntas.Minutos > 1440) & (Perguntas.Minutos < 2280),'Rotulo'] 
 Perguntas.loc[(Perguntas.Minutos > 2280) & (Perguntas.Minutos <= 5790),'Rotulo'] = 5
 Perguntas.loc[(Perguntas.Minutos > 5790),'Rotulo'] = 6
 Perguntas.loc[(Perguntas.Minutos == -1) ,'Rotulo'] = 7
-
-
 '''
+
+
 Perguntas.loc[(Perguntas.Minutos >= 0) & (Perguntas.Minutos <= 1440),'Rotulo'] = 1
 Perguntas.loc[(Perguntas.Minutos >1440) & (Perguntas.Minutos <= 10080),'Rotulo'] = 2
 Perguntas.loc[(Perguntas.Minutos > 10080),'Rotulo'] = 3
 Perguntas.loc[(Perguntas.Minutos == -1) ,'Rotulo'] = 4
-'''
+
 
 
 
@@ -80,4 +82,4 @@ print(x_test.head())
 
 print(x_test.groupby(['Rotulo']).size())
 
-x_test.to_csv('C:\\Users\\joaor\\Desktop\\Databases\\Data7class20%.csv', sep='\t', encoding='utf-8')
+x_test.to_csv('C:\\Users\\joaor\\Desktop\\Data4class20%.csv', sep='\t', encoding='utf-8')
