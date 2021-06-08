@@ -1,0 +1,1 @@
+RandomForestClassifier(min_samples_leaf=4, n_jobs=6, random_state=19963)

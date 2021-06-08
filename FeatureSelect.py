@@ -9,7 +9,7 @@ from matplotlib import pyplot
 from sklearn.ensemble import RandomForestClassifier
 
 # load data
-filename = 'C:\\Users\\joaor\\Desktop\\Databases\\Data2class20%.csv'
+filename = 'C:\\Users\\joaor\\Desktop\\Databases\\Data4class20%.csv'
 #perg = ['CountPalavrasBody','CountPalavrasTitle','Nfrasesbody','flesch_reading_ease','mediaCaracteresFrase','tamCod','interogacao','iniciaWH','subjectivity','polaridade','sumT','NpergFei','NresFei','Rotulo']
 perg2 = ['N Palavras corpo','N Palavras Titulo','N frases corpo','flesch','Media Caracteres Frase','Tamanho Codigo','Interogacao','Inicia com WH','Subjetividade','Polaridade','N de tags','N perguntas Feitas','N respostas Feitas','Rotulo']
 

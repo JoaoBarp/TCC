@@ -14,11 +14,12 @@ import csv
 from sklearn.svm import SVC
 from sklearn.svm import LinearSVC
 import sys
+from sklearn.ensemble import ExtraTreesClassifier
 
 SEED =  19963
 # load data
 filename='C:\\Users\\joaor\\Desktop\\Databases\\' + sys.argv[1]
-filesalve='C:\\Users\\joaor\\Desktop\\TCC\\Result\\' + sys.argv[2]
+#filesalve='C:\\Users\\joaor\\Desktop\\TCC\\Result\\' + sys.argv[2]
 #filename='/media/Lun02_Raid0/joaob/'+sys.argv[1]
 #filesalve='Result/'+sys.argv[2]
 #perg = ['CountPalavrasBody','CountPalavrasTitle','Nfrasesbody','flesch','mediaCaracteresFrase','tamCod','interogacao','iniciaWH','subjectivity','polaridade','sumT','NpergFei','NresFei','Rotulo']
@@ -74,12 +75,17 @@ print(x_train)
 print(y_train)
 '''
 
-clf=RandomForestClassifier(n_jobs=-1, random_state=19963,verbose=2)
+clf=ExtraTreesClassifier(random_state=SEED,n_jobs=-1,verbose=2)
 
 X_tr, X_te, y_train, y_test = train_test_split(dataframe.drop(columns=['Rotulo']),dataframe['Rotulo'],test_size=0.3,random_state=SEED)
 
+clf.fit(X_tr,y_train)
+y_pred=clf.predict(X_te)
+print(classification_report(y_test, y_pred, labels=classes))
 #features estão ordenadas pela importancia
 #começa com 2 principais e vai sendo adicionada as seguintes.
+
+'''
 for i,x in enumerate(features):
 
     #separa os dados em treino e teste utilizando dataframe[aux]
@@ -88,6 +94,7 @@ for i,x in enumerate(features):
 
     clf.fit(x_train,y_train)
     y_pred=clf.predict(x_test)
+
 
     #print dos resultados e valores
     print(i,'> ---------------------------------------------------------------------------------')
@@ -106,3 +113,4 @@ with open(filesalve, 'w') as csv_file:
     writer = csv.writer(csv_file)
     for key, value in dict.items():
        writer.writerow([key, value])
+'''
