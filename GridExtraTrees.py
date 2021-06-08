@@ -91,7 +91,7 @@ param = {
     'n_estimators': [200, 100, 50, 30],
     'min_samples_split': [2, 3 ,4, 10],
     'max_depth': [10, None, 2, 5],
-    'min_samples_leaf':[1, 2, 3, 4],
+    'min_samples_leaf':[1, 2, 3, 10],
 }
 
 
