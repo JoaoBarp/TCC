@@ -9,7 +9,7 @@ from matplotlib import pyplot
 from sklearn.ensemble import RandomForestClassifier
 
 # load data
-filename = 'C:\\Users\\joaor\\Desktop\\Databases\\Data4class20%.csv'
+filename = 'C:\\Users\\joaor\\Desktop\\Databases\\Data2classNEAR.csv'
 #perg = ['CountPalavrasBody','CountPalavrasTitle','Nfrasesbody','flesch_reading_ease','mediaCaracteresFrase','tamCod','interogacao','iniciaWH','subjectivity','polaridade','sumT','NpergFei','NresFei','Rotulo']
 perg2 = ['N Palavras corpo','N Palavras Titulo','N frases corpo','flesch','Media Caracteres Frase','Tamanho Codigo','Interogacao','Inicia com WH','Subjetividade','Polaridade','N de tags','N perguntas Feitas','N respostas Feitas','Rotulo']
 
@@ -81,14 +81,14 @@ for i in range(len(fs.scores_)):
 fig = pyplot.figure()
 ax = fig.add_subplot(111)
 
-sampledata = {'genre': ['N Palavras corpo','N Palavras Título','N frases corpo','flesch_reading_ease','Média Caracteres Frase','Tamanho Código','Interogacão','Inicia com WH','Subjetividade','Polaridade','N de tags','N perguntas Feitas','N respostas Feitas']
+sampledata = {'genre': ['N Palavras corpo','N Palavras Titulo','N frases corpo','flesch','Media Caracteres Frase','Tamanho Codigo','Interogacao','Inicia com WH','Subjetividade','Polaridade','N de tags','N perguntas Feitas','N respostas Feitas']
 ,
               'rating':var }
 
 test = pd.DataFrame(sampledata,  index=sampledata['genre'])
 test.sort_values(by = "rating").plot(kind = "barh", color = "blue", legend = False, grid = True, ax = ax)
 
-pyplot.xlim(0, 350000)
+pyplot.xlim(0, 800000)
 pyplot.xlabel('Score')
 pyplot.ylabel('Features')
 pyplot.title('SelectKBest')

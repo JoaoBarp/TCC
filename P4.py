@@ -34,7 +34,7 @@ perg = ['OwnerUserId','CreationDate','Ntags','TemCodigo','CountPalavrasBody','Co
 print('Começou...')
 Perguntas=pd.read_csv('C:\\Users\\joaor\\Desktop\\Databases\\DataFramePerg.csv',sep='\t',usecols=perg)
 Perguntas=Perguntas.loc[(Perguntas.Minutos >= -1)]
-dataframe=dataframe.dropna()
+Perguntas=Perguntas.dropna()
 print('Acabou...')
 
 
@@ -46,15 +46,16 @@ Perguntas.loc[(Perguntas.Minutos > 1440) & (Perguntas.Minutos < 2280),'Rotulo'] 
 Perguntas.loc[(Perguntas.Minutos > 2280) & (Perguntas.Minutos <= 5790),'Rotulo'] = 5
 Perguntas.loc[(Perguntas.Minutos > 5790),'Rotulo'] = 6
 Perguntas.loc[(Perguntas.Minutos == -1) ,'Rotulo'] = 7
-'''
+
 
 
 Perguntas.loc[(Perguntas.Minutos >= 0) & (Perguntas.Minutos <= 1440),'Rotulo'] = 1
 Perguntas.loc[(Perguntas.Minutos >1440) & (Perguntas.Minutos <= 10080),'Rotulo'] = 2
 Perguntas.loc[(Perguntas.Minutos > 10080),'Rotulo'] = 3
 Perguntas.loc[(Perguntas.Minutos == -1) ,'Rotulo'] = 4
-
-
+'''
+Perguntas.loc[(Perguntas.Minutos >= 0),'Rotulo'] = 1
+Perguntas.loc[(Perguntas.Minutos == -1) ,'Rotulo'] = 2
 
 
 
@@ -64,7 +65,7 @@ Perguntas = Perguntas.drop(columns=['Ntags'])
 Perguntas = Perguntas.drop(columns=['TemCodigo'])
 Perguntas = Perguntas.drop(columns=['Minutos'])
 
-x_train, x_test, y_train, y_test = train_test_split(Perguntas.drop(columns=['Rotulo']),Perguntas['Rotulo'],test_size=0.20,random_state=SEED)
+x_train, x_test, y_train, y_test = train_test_split(Perguntas.drop(columns=['Rotulo']),Perguntas['Rotulo'],test_size=0.9999,random_state=SEED)
 
 x_test['Rotulo'] =  y_test
 
@@ -82,4 +83,4 @@ print(x_test.head())
 
 print(x_test.groupby(['Rotulo']).size())
 
-x_test.to_csv('C:\\Users\\joaor\\Desktop\\Data4class20%.csv', sep='\t', encoding='utf-8')
+x_test.to_csv('C:\\Users\\joaor\\Desktop\\Data2class20%.csv', sep='\t', encoding='utf-8')

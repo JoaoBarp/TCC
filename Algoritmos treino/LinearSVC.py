@@ -14,6 +14,7 @@ from sklearn.svm import SVC
 from sklearn.svm import LinearSVC
 import sys
 
+
 SEED =  19963
 # load data
 filename='C:\\Users\\joaor\\Desktop\\Databases\\' + sys.argv[1]
@@ -40,31 +41,38 @@ dataframe=pd.read_csv(filename,sep='\t',usecols=perg2, encoding='utf-8')
 print('Acabou ler ...')
 dataframe=dataframe.dropna()
 
+print(dataframe.groupby(['Rotulo']).size())
+
 
 
 #Lê o arquivo seque, que contem o seguencia de features mais importantes
-with open('seque.txt', 'r') as f:
+with open('C:\\Users\\joaor\\Desktop\\TCC\\Arq complementar\\seque2class.txt', 'r') as f:
     line=f.readlines()
     results=line[0].split(',')
     del results[-1]
 
-results.append('Rotulo')
+#results.append('Rotulo')
+results.append('')
+print(results)
+
+aux=[]
+aux.append(results[0])
+aux.append(results[1])
+print(aux)
+
 #Realoca o dataframe pela ordem de features mais importantes
-dataframe=dataframe[results]
+#--dataframe=dataframe[results]
 
 dict={}
-classes=[1,2,3,4]
+classes=[1,2]
 #classes=['C1','C2','C3','C4','C5','C6','C7']
 
-print('-------------------------------------------------')
-print('Começou o treino')
 
 #total de features
-#features = ['N frases corpo','flesch','Media Caracteres Frase','Tamanho Codigo','Interogacao','Inicia com WH','Subjetividade','Polaridade','N de tags','N perguntas Feitas','N respostas Feitas','']
-features = ['Tamanho Codigo','flesch','N frases corpo','Interogacao','Inicia com WH','N perguntas Feitas','N Palavras Titulo','Subjetividade','N respostas Feitas','Media Caracteres Frase','Polaridade','']
-
+#features = ['Tamanho Codigo','flesch','N frases corpo','Interogacao','Inicia com WH','N perguntas Feitas','N Palavras Titulo','Subjetividade','N respostas Feitas','Media Caracteres Frase','Polaridade','']
+#---features = ['flesch','Tamanho Codigo','N perguntas Feitas','Media Caracteres Frase','N frases corpo','N de tags','Polaridade','N Palavras Titulo','Interogacao','Inicia com WH','N respostas Feitas','']
 #Aux vai incrmentanto, começa com as 2 mais importantes features
-aux= ['N Palavras corpo','N de tags']
+#---aux= ['Subjetividade','N Palavras corpo']
 
 '''
 print('-------------------------------------------------')
@@ -78,12 +86,13 @@ X_tr, X_te, y_train, y_test = train_test_split(dataframe.drop(columns=['Rotulo']
 
 #features estão ordenadas pela importancia
 #começa com 2 principais e vai sendo adicionada as seguintes.
-for i,x in enumerate(features):
+for i,x in enumerate(results):
 
     #separa os dados em treino e teste utilizando dataframe[aux]
     x_train=X_tr[aux]
     x_test=X_te[aux]
-
+    print('------------------------------------------------------------------------------------')
+    print('Começou o treino')
     clf.fit(x_train,y_train)
     y_pred=clf.predict(x_test)
 
@@ -96,10 +105,12 @@ for i,x in enumerate(features):
     #salva o numero de features com os resultados(Como sei a ordem o numero já serve)
     dict[len(aux)]=classification_report(y_test, y_pred, labels=classes)
     print(dict[len(aux)])
+    print('\n\n\n')
     aux.append(x)
 
 
 #-------------------------------------Salvando-------------------------------------------------------------
+
 with open(filesalve, 'w') as csv_file:
     writer = csv.writer(csv_file)
     for key, value in dict.items():

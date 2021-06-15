@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 from sklearn.preprocessing import MinMaxScaler
 
-filename = 'C:\\Users\\joaor\\Desktop\\Databases\\Data7classFULL.csv'
+filename = 'C:\\Users\\joaor\\Desktop\\Databases\\'
 
 scaler = MinMaxScaler()
 
