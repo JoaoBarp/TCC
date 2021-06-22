@@ -19,7 +19,7 @@ from imblearn.under_sampling import NearMiss
 
 SEED =  19963
 # load data
-filename = 'C:\\Users\\joaor\\Desktop\\Databases\\Data4classFULL.csv'
+filename = 'C:\\Users\\joaor\\Desktop\\Data2class20%.csv'
 #perg = ['CountPalavrasBody','CountPalavrasTitle','Nfrasesbody','flesch_reading_ease','mediaCaracteresFrase','tamCod','interogacao','iniciaWH','subjectivity','polaridade','sumT','NpergFei','NresFei','Rotulo']
 perg2 = ['N Palavras corpo','N Palavras Titulo','N frases corpo','flesch','Media Caracteres Frase','Tamanho Codigo','Interogacao','Inicia com WH','Subjetividade','Polaridade','N de tags','N perguntas Feitas','N respostas Feitas','Rotulo']
 
@@ -54,4 +54,4 @@ print(X)
 
 #df['Rótulo']= y_test
 #df['N Palavras corpo','N Palavras Título','N frases corpo','flesch_reading_ease','Média Caracteres Frase','Tamanho Código','Interogacão','Inicia com WH','Subjetividade','Polaridade','N de tags','N perguntas Feitas','N respostas Feitas'] = x_test
-X.to_csv('C:\\Users\\joaor\\Desktop\\Databases\\XX.csv', sep='\t', encoding='utf-8')
+X.to_csv('C:\\Users\\joaor\\Desktop\\Databases\\Data2classNEAR.csv', sep='\t', encoding='utf-8')
