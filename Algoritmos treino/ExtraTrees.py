@@ -47,7 +47,7 @@ print(dataframe.groupby(['Rotulo']).size())
 
 
 #Lê o arquivo seque, que contem o seguencia de features mais importantes
-with open('C:\\Users\\joaor\\Desktop\\TCC\\Arq complementar\\seque2class.txt', 'r') as f:
+with open('C:\\Users\\joaor\\Desktop\\TCC\\Arq complementar\\Data2class20%.txt', 'r') as f:
     line=f.readlines()
     results=line[0].split(',')
     del results[-1]

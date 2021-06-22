@@ -34,10 +34,12 @@ perg = ['OwnerUserId','CreationDate','Ntags','TemCodigo','CountPalavrasBody','Co
 print('Começou...')
 Perguntas=pd.read_csv('C:\\Users\\joaor\\Desktop\\Databases\\DataFramePerg.csv',sep='\t',usecols=perg)
 Perguntas=Perguntas.loc[(Perguntas.Minutos >= -1)]
+#print(type(datetime.strptime(Perguntas.CreationDate, "%Y-%m-%d %H:%M:%S")))
+#Perguntas=Perguntas.loc[pd.to_datetime(Perguntas.CreationDate, format="%Y-%m-%d %H:%M:%S") > datetime.strptime('2015-12-31 23:59:59', "%Y-%m-%d %H:%M:%S")]
 Perguntas=Perguntas.dropna()
 print('Acabou...')
-
-
+#datetime.strptime('2015-12-31 23:59:59', "%Y-%m-%d %H:%M:%S")
+#print(Perguntas.head())
 '''
 Perguntas.loc[(Perguntas.Minutos >= 0) & (Perguntas.Minutos <= 480),'Rotulo'] = 1
 Perguntas.loc[(Perguntas.Minutos > 480) & (Perguntas.Minutos <= 960),'Rotulo'] = 2
@@ -54,8 +56,10 @@ Perguntas.loc[(Perguntas.Minutos >1440) & (Perguntas.Minutos <= 10080),'Rotulo']
 Perguntas.loc[(Perguntas.Minutos > 10080),'Rotulo'] = 3
 Perguntas.loc[(Perguntas.Minutos == -1) ,'Rotulo'] = 4
 '''
-Perguntas.loc[(Perguntas.Minutos >= 0),'Rotulo'] = 1
-Perguntas.loc[(Perguntas.Minutos == -1) ,'Rotulo'] = 2
+
+Perguntas.loc[(Perguntas.Minutos >= 0) & (Perguntas.Minutos <= 1440),'Rotulo'] = 1
+Perguntas.loc[(Perguntas.Minutos > 1440),'Rotulo'] = 2
+Perguntas.loc[(Perguntas.Minutos == -1) ,'Rotulo'] = 3
 
 
 
@@ -79,8 +83,8 @@ x_test[['N Palavras corpo','N Palavras Titulo','N frases corpo','flesch','Media 
 
 
 
-print(x_test.head())
+print(scaled_df.head())
 
 print(x_test.groupby(['Rotulo']).size())
 
-x_test.to_csv('C:\\Users\\joaor\\Desktop\\Data2class20%.csv', sep='\t', encoding='utf-8')
+x_test.to_csv('C:\\Users\\joaor\\Desktop\\Data.csv', sep='\t', encoding='utf-8')

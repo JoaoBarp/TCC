@@ -101,7 +101,7 @@ list=z.index.tolist()
 list=list[::-1]
 print(list)
 pyplot.show()
-arquivo = open('seque2class.txt', 'w+')
+arquivo = open('C:\\Users\\joaor\\Desktop\\TCC\\Arq complementar\\Data3class20%.txt', 'w+')
 for x in list:
     arquivo.writelines(x)
     arquivo.writelines(',')
