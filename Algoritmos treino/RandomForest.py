@@ -46,7 +46,7 @@ print(dataframe.groupby(['Rotulo']).size())
 
 
 #Lê o arquivo seque, que contem o seguencia de features mais importantes
-with open('C:\\Users\\joaor\\Desktop\\TCC\\Arq complementar\\seque2class.txt', 'r') as f:
+with open('C:\\Users\\joaor\\Desktop\\TCC\\Arq complementar\\seque3class20%.txt', 'r') as f:
     line=f.readlines()
     results=line[0].split(',')
     del results[-1]
@@ -64,7 +64,7 @@ print(aux)
 #--dataframe=dataframe[results]
 
 dict={}
-classes=[1,2]
+classes=[1,2,3]
 #classes=['C1','C2','C3','C4','C5','C6','C7']
 
 
@@ -80,7 +80,7 @@ print(x_train)
 print(y_train)
 '''
 
-clf=RandomForestClassifier(n_estimators=200,min_samples_split=5,max_depth=10,min_samples_leaf=5,n_jobs=6, random_state=19963,verbose=0)
+clf=RandomForestClassifier(n_jobs=-1, random_state=SEED)
 
 X_tr, X_te, y_train, y_test = train_test_split(dataframe.drop(columns=['Rotulo']),dataframe['Rotulo'],test_size=0.3,random_state=SEED)
 
