@@ -9,14 +9,15 @@ from matplotlib import pyplot
 from sklearn.ensemble import RandomForestClassifier
 
 # load data
-filename = 'C:\\Users\\joaor\\Desktop\\Databases\\Data2classNEAR.csv'
+filename = 'C:\\Users\\joaor\\Desktop\\Databases\\Feriado20%.csv'
 #perg = ['CountPalavrasBody','CountPalavrasTitle','Nfrasesbody','flesch_reading_ease','mediaCaracteresFrase','tamCod','interogacao','iniciaWH','subjectivity','polaridade','sumT','NpergFei','NresFei','Rotulo']
 perg2 = ['N Palavras corpo','N Palavras Titulo','N frases corpo','flesch','Media Caracteres Frase','Tamanho Codigo','Interogacao','Inicia com WH','Subjetividade','Polaridade','N de tags','N perguntas Feitas','N respostas Feitas','Rotulo']
+pg= ['Feriado/FimSem','TemCodigo','N Palavras corpo','N Palavras Titulo','N frases corpo','flesch','Media Caracteres Frase','Tamanho Codigo','Interogacao','Inicia com WH','Subjetividade','Polaridade','N de tags','N perguntas Feitas','N respostas Feitas','Rotulo']
 
 
 print('Começou...')
-dataframe=pd.read_csv(filename,sep='\t',usecols=perg2, encoding='utf-8')
-#dataframe.columns=perg2
+dataframe=pd.read_csv(filename,sep='\t',usecols=pg, encoding='utf-8')
+#dataframe.columns=pg
 print('Acabou...')
 
 dataframe=dataframe.dropna()
@@ -69,7 +70,7 @@ fs = SelectKBest(score_func=f_classif, k='all')
 fs.fit(X,y)
 # transform train input data
 for i in range(len(fs.scores_)):
-    print(perg2[i],':         ', fs.scores_[i])
+    print(pg[i],':         ', fs.scores_[i])
     var.append(fs.scores_[i])
 
 # plot the scores
@@ -81,7 +82,7 @@ for i in range(len(fs.scores_)):
 fig = pyplot.figure()
 ax = fig.add_subplot(111)
 
-sampledata = {'genre': ['N Palavras corpo','N Palavras Titulo','N frases corpo','flesch','Media Caracteres Frase','Tamanho Codigo','Interogacao','Inicia com WH','Subjetividade','Polaridade','N de tags','N perguntas Feitas','N respostas Feitas']
+sampledata = {'genre': ['Feriado/FimSem','TemCodigo','N Palavras corpo','N Palavras Titulo','N frases corpo','flesch','Media Caracteres Frase','Tamanho Codigo','Interogacao','Inicia com WH','Subjetividade','Polaridade','N de tags','N perguntas Feitas','N respostas Feitas']
 ,
               'rating':var }
 
@@ -101,7 +102,7 @@ list=z.index.tolist()
 list=list[::-1]
 print(list)
 pyplot.show()
-arquivo = open('C:\\Users\\joaor\\Desktop\\TCC\\Arq complementar\\Data3class20%.txt', 'w+')
+arquivo = open('C:\\Users\\joaor\\Desktop\\TCC\\Arq complementar\\Feriado20%.txt', 'w+')
 for x in list:
     arquivo.writelines(x)
     arquivo.writelines(',')
