@@ -9,10 +9,10 @@ from matplotlib import pyplot
 from sklearn.ensemble import RandomForestClassifier
 
 # load data
-filename = 'C:\\Users\\joaor\\Desktop\\Databases\\Feriado20%.csv'
+filename = 'C:\\Users\\joaor\\Desktop\\Databases\\Outlieres3class.csv'
 #perg = ['CountPalavrasBody','CountPalavrasTitle','Nfrasesbody','flesch_reading_ease','mediaCaracteresFrase','tamCod','interogacao','iniciaWH','subjectivity','polaridade','sumT','NpergFei','NresFei','Rotulo']
 perg2 = ['N Palavras corpo','N Palavras Titulo','N frases corpo','flesch','Media Caracteres Frase','Tamanho Codigo','Interogacao','Inicia com WH','Subjetividade','Polaridade','N de tags','N perguntas Feitas','N respostas Feitas','Rotulo']
-pg= ['Feriado/FimSem','TemCodigo','N Palavras corpo','N Palavras Titulo','N frases corpo','flesch','Media Caracteres Frase','Tamanho Codigo','Interogacao','Inicia com WH','Subjetividade','Polaridade','N de tags','N perguntas Feitas','N respostas Feitas','Rotulo']
+pg= ['Feriado/FimSem','N Palavras corpo','N Palavras Titulo','N frases corpo','flesch','Media Caracteres Frase','Tamanho Codigo','Interogacao','Inicia com WH','Subjetividade','Polaridade','N de tags','N perguntas Feitas','N respostas Feitas','Rotulo']
 
 
 print('Começou...')
@@ -82,7 +82,7 @@ for i in range(len(fs.scores_)):
 fig = pyplot.figure()
 ax = fig.add_subplot(111)
 
-sampledata = {'genre': ['Feriado/FimSem','TemCodigo','N Palavras corpo','N Palavras Titulo','N frases corpo','flesch','Media Caracteres Frase','Tamanho Codigo','Interogacao','Inicia com WH','Subjetividade','Polaridade','N de tags','N perguntas Feitas','N respostas Feitas']
+sampledata = {'genre': ['Feriado/FimSem','N Palavras corpo','N Palavras Titulo','N frases corpo','flesch','Media Caracteres Frase','Tamanho Codigo','Interogacao','Inicia com WH','Subjetividade','Polaridade','N de tags','N perguntas Feitas','N respostas Feitas']
 ,
               'rating':var }
 
@@ -102,7 +102,7 @@ list=z.index.tolist()
 list=list[::-1]
 print(list)
 pyplot.show()
-arquivo = open('C:\\Users\\joaor\\Desktop\\TCC\\Arq complementar\\Feriado20%.txt', 'w+')
+arquivo = open('C:\\Users\\joaor\\Desktop\\TCC\\Arq complementar\\Outlieres3class.txt', 'w+')
 for x in list:
     arquivo.writelines(x)
     arquivo.writelines(',')

@@ -1,0 +1,150 @@
+2,"              precision    recall  f1-score   support
+
+           0       0.74      1.00      0.85    630261
+           1       0.23      0.00      0.00    103941
+           2       0.13      0.00      0.00    111970
+
+    accuracy                           0.74    846172
+   macro avg       0.37      0.33      0.28    846172
+weighted avg       0.60      0.74      0.64    846172
+"
+3,"              precision    recall  f1-score   support
+
+           0       0.74      1.00      0.85    630261
+           1       0.23      0.00      0.00    103941
+           2       0.13      0.00      0.00    111970
+
+    accuracy                           0.74    846172
+   macro avg       0.37      0.33      0.28    846172
+weighted avg       0.60      0.74      0.64    846172
+"
+4,"              precision    recall  f1-score   support
+
+           0       0.74      1.00      0.85    630261
+           1       0.23      0.00      0.00    103941
+           2       0.13      0.00      0.00    111970
+
+    accuracy                           0.74    846172
+   macro avg       0.37      0.33      0.28    846172
+weighted avg       0.60      0.74      0.64    846172
+"
+5,"              precision    recall  f1-score   support
+
+           0       0.75      0.90      0.82    630261
+           1       0.15      0.07      0.10    103941
+           2       0.15      0.06      0.09    111970
+
+    accuracy                           0.69    846172
+   macro avg       0.35      0.34      0.33    846172
+weighted avg       0.60      0.69      0.63    846172
+"
+6,"              precision    recall  f1-score   support
+
+           0       0.75      0.85      0.80    630261
+           1       0.14      0.09      0.11    103941
+           2       0.15      0.09      0.11    111970
+
+    accuracy                           0.66    846172
+   macro avg       0.35      0.34      0.34    846172
+weighted avg       0.60      0.66      0.62    846172
+"
+7,"              precision    recall  f1-score   support
+
+           0       0.75      0.90      0.82    630261
+           1       0.15      0.06      0.09    103941
+           2       0.14      0.05      0.08    111970
+
+    accuracy                           0.69    846172
+   macro avg       0.35      0.34      0.33    846172
+weighted avg       0.60      0.69      0.63    846172
+"
+8,"              precision    recall  f1-score   support
+
+           0       0.75      0.90      0.82    630261
+           1       0.15      0.06      0.09    103941
+           2       0.14      0.05      0.08    111970
+
+    accuracy                           0.69    846172
+   macro avg       0.35      0.34      0.33    846172
+weighted avg       0.60      0.69      0.63    846172
+"
+9,"              precision    recall  f1-score   support
+
+           0       0.75      0.95      0.84    630261
+           1       0.16      0.03      0.05    103941
+           2       0.15      0.03      0.05    111970
+
+    accuracy                           0.72    846172
+   macro avg       0.35      0.34      0.31    846172
+weighted avg       0.60      0.72      0.64    846172
+"
+10,"              precision    recall  f1-score   support
+
+           0       0.75      0.96      0.84    630261
+           1       0.16      0.03      0.05    103941
+           2       0.15      0.03      0.04    111970
+
+    accuracy                           0.72    846172
+   macro avg       0.35      0.34      0.31    846172
+weighted avg       0.60      0.72      0.64    846172
+"
+11,"              precision    recall  f1-score   support
+
+           0       0.75      0.97      0.84    630261
+           1       0.16      0.02      0.03    103941
+           2       0.16      0.02      0.03    111970
+
+    accuracy                           0.73    846172
+   macro avg       0.36      0.34      0.30    846172
+weighted avg       0.60      0.73      0.64    846172
+"
+12,"              precision    recall  f1-score   support
+
+           0       0.75      0.99      0.85    630261
+           1       0.18      0.01      0.02    103941
+           2       0.17      0.01      0.01    111970
+
+    accuracy                           0.74    846172
+   macro avg       0.36      0.34      0.29    846172
+weighted avg       0.60      0.74      0.64    846172
+"
+13,"              precision    recall  f1-score   support
+
+           0       0.75      1.00      0.85    630261
+           1       0.19      0.00      0.01    103941
+           2       0.17      0.00      0.01    111970
+
+    accuracy                           0.74    846172
+   macro avg       0.37      0.33      0.29    846172
+weighted avg       0.60      0.74      0.64    846172
+"
+14,"              precision    recall  f1-score   support
+
+           0       0.75      1.00      0.85    630261
+           1       0.19      0.00      0.01    103941
+           2       0.17      0.00      0.01    111970
+
+    accuracy                           0.74    846172
+   macro avg       0.37      0.33      0.29    846172
+weighted avg       0.60      0.74      0.64    846172
+"
+15,"              precision    recall  f1-score   support
+
+           0       0.75      1.00      0.85    630261
+           1       0.22      0.00      0.00    103941
+           2       0.20      0.00      0.00    111970
+
+    accuracy                           0.74    846172
+   macro avg       0.39      0.33      0.29    846172
+weighted avg       0.61      0.74      0.64    846172
+"
+16,"              precision    recall  f1-score   support
+
+           0       0.75      1.00      0.85    630261
+           1       0.21      0.00      0.00    103941
+           2       0.18      0.00      0.00    111970
+
+    accuracy                           0.74    846172
+   macro avg       0.38      0.33      0.29    846172
+weighted avg       0.60      0.74      0.64    846172
+"

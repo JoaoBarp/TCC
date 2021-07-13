@@ -1,0 +1,1 @@
+N frases corpo,N Palavras corpo,flesch,N de tags,Tamanho Codigo,Interogacao,N perguntas Feitas,Inicia com WH,N respostas Feitas,N Palavras Titulo,Subjetividade,Feriado/FimSem,Media Caracteres Frase,Polaridade,

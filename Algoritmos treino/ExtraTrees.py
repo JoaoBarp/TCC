@@ -15,6 +15,7 @@ import csv
 from sklearn.svm import SVC
 from sklearn.svm import LinearSVC
 import sys
+from scipy import stats
 
 SEED =  19963
 # load data
@@ -23,8 +24,7 @@ filesalve='C:\\Users\\joaor\\Desktop\\TCC\\Result\\' + sys.argv[2]
 #filename='/media/Lun02_Raid0/joaob/'+sys.argv[1]
 #filesalve='Result/'+sys.argv[2]
 #perg = ['CountPalavrasBody','CountPalavrasTitle','Nfrasesbody','flesch','mediaCaracteresFrase','tamCod','interogacao','iniciaWH','subjectivity','polaridade','sumT','NpergFei','NresFei','Rotulo']
-perg2 = ['N Palavras corpo','N Palavras Titulo','N frases corpo','flesch','Media Caracteres Frase','Tamanho Codigo','Interogacao','Inicia com WH','Subjetividade','Polaridade','N de tags','N perguntas Feitas','N respostas Feitas','Rotulo']
-
+perg2 = ['Feriado/FimSem','N Palavras corpo','N Palavras Titulo','N frases corpo','flesch','Media Caracteres Frase','Tamanho Codigo','Interogacao','Inicia com WH','Subjetividade','Polaridade','N de tags','N perguntas Feitas','N respostas Feitas','Rotulo']
 '''
 mydict={}
 with open('valores.csv','r') as csv_file:
@@ -42,12 +42,16 @@ dataframe=pd.read_csv(filename,sep='\t',usecols=perg2, encoding='utf-8')
 print('Acabou ler ...')
 dataframe=dataframe.dropna()
 
+print(len(dataframe.index))
+dataframe = dataframe[(np.abs(stats.zscore(dataframe)) < 3).all(axis=1)]
+print(len(dataframe.index))
+
 print(dataframe.groupby(['Rotulo']).size())
 
 
 
 #Lê o arquivo seque, que contem o seguencia de features mais importantes
-with open('C:\\Users\\joaor\\Desktop\\TCC\\Arq complementar\\Data2class20%.txt', 'r') as f:
+with open('C:\\Users\\joaor\\Desktop\\TCC\\Arq complementar\\Outlieres3class.txt', 'r') as f:
     line=f.readlines()
     results=line[0].split(',')
     del results[-1]
@@ -65,7 +69,7 @@ print(aux)
 #--dataframe=dataframe[results]
 
 dict={}
-classes=[1,2]
+classes=[0,1,2]
 #classes=['C1','C2','C3','C4','C5','C6','C7']
 
 

@@ -26,6 +26,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn import metrics
 from sklearn.metrics import classification_report
+from scipy import stats
 
 scaler = MinMaxScaler()
 
@@ -68,27 +69,24 @@ Perguntas.loc[(Perguntas.Minutos > 10080),'Rotulo'] = 3
 Perguntas.loc[(Perguntas.Minutos == -1) ,'Rotulo'] = 4
 '''
 
-Perguntas=Perguntas[(Perguntas.Minutos > 1440) | (Perguntas.Minutos == -1)]
-#Perguntas.loc[(Perguntas.Minutos >= 0) & (Perguntas.Minutos <= 1440),'Rotulo'] = 0
-Perguntas.loc[(Perguntas.Minutos > 1440),'Rotulo'] = 0
-Perguntas.loc[(Perguntas.Minutos == -1) ,'Rotulo'] = 1
+#Perguntas=Perguntas[(Perguntas.Minutos > 1440) | (Perguntas.Minutos == -1)]
+Perguntas.loc[(Perguntas.Minutos >= 0) & (Perguntas.Minutos <= 1440),'Rotulo'] = 0
+Perguntas.loc[(Perguntas.Minutos > 1440),'Rotulo'] = 1
+Perguntas.loc[(Perguntas.Minutos == -1) ,'Rotulo'] = 2
 
 
 Perguntas = Perguntas.drop(columns=['OwnerUserId'])
-
 Perguntas = Perguntas.drop(columns=['Ntags'])
-#Perguntas = Perguntas.drop(columns=['TemCodigo'])
+Perguntas = Perguntas.drop(columns=['TemCodigo'])
 Perguntas = Perguntas.drop(columns=['Minutos'])
 
-x_train, x_test, y_train, y_test = train_test_split(Perguntas.drop(columns=['Rotulo']),Perguntas['Rotulo'],test_size=0.5,random_state=SEED)
+x_train, x_test, y_train, y_test = train_test_split(Perguntas.drop(columns=['Rotulo']),Perguntas['Rotulo'],test_size=0.999,random_state=SEED)
 
 x_test['Rotulo'] =  y_test
 
-perg2 = ['CreationDate','TemCodigo','N Palavras corpo','N Palavras Titulo','N frases corpo','flesch','Media Caracteres Frase','Tamanho Codigo','Interogacao','Inicia com WH','Subjetividade','Polaridade','N de tags','N perguntas Feitas','N respostas Feitas','Rotulo']
+perg2 = ['CreationDate','N Palavras corpo','N Palavras Titulo','N frases corpo','flesch','Media Caracteres Frase','Tamanho Codigo','Interogacao','Inicia com WH','Subjetividade','Polaridade','N de tags','N perguntas Feitas','N respostas Feitas','Rotulo']
 x_test.columns=perg2
-
-x_test[['N Palavras corpo','N Palavras Titulo','N frases corpo','flesch','Media Caracteres Frase','Tamanho Codigo','Interogacao','Inicia com WH','Subjetividade','Polaridade','N de tags','N perguntas Feitas','N respostas Feitas']] = scaler.fit_transform(x_test[['N Palavras corpo','N Palavras Titulo','N frases corpo','flesch','Media Caracteres Frase','Tamanho Codigo','Interogacao','Inicia com WH','Subjetividade','Polaridade','N de tags','N perguntas Feitas','N respostas Feitas']])
-
+'''
 result=[]
 i=0
 for x in x_test['CreationDate']:
@@ -106,9 +104,18 @@ for x in x_test['CreationDate']:
 
     print('\r\r\r',end='')
 
-x_test['Feriado/FimSem'] = result
+x_test['Feriado/FimSem'] = result'''
 x_test = x_test.drop(columns=['CreationDate'])
+
+'''
+print(len(x_test.index))
+x_test = x_test[(np.abs(stats.zscore(x_test)) < 3).all(axis=1)]
+print(len(x_test.index))
+'''
+
+#x_test[['N Palavras corpo','N Palavras Titulo','N frases corpo','flesch','Media Caracteres Frase','Tamanho Codigo','Interogacao','Inicia com WH','Subjetividade','Polaridade','N de tags','N perguntas Feitas','N respostas Feitas','Feriado/FimSem']] = scaler.fit_transform(x_test[['N Palavras corpo','N Palavras Titulo','N frases corpo','flesch','Media Caracteres Frase','Tamanho Codigo','Interogacao','Inicia com WH','Subjetividade','Polaridade','N de tags','N perguntas Feitas','N respostas Feitas','Feriado/FimSem']])
+
 print(x_test.groupby(['Rotulo']).size())
-x_test = x_test[['Feriado/FimSem','TemCodigo','N Palavras corpo','N Palavras Titulo','N frases corpo','flesch','Media Caracteres Frase','Tamanho Codigo','Interogacao','Inicia com WH','Subjetividade','Polaridade','N de tags','N perguntas Feitas','N respostas Feitas','Rotulo']]
+x_test = x_test[['N Palavras corpo','N Palavras Titulo','N frases corpo','flesch','Media Caracteres Frase','Tamanho Codigo','Interogacao','Inicia com WH','Subjetividade','Polaridade','N de tags','N perguntas Feitas','N respostas Feitas','Rotulo']]
 print(x_test.head())
-x_test.to_csv('C:\\Users\\joaor\\Desktop\\Data2class50%semclas1.csv', sep='\t', encoding='utf-8')
+x_test.to_csv('C:\\Users\\joaor\\Desktop\\Outlieresclass.csv', sep='\t', encoding='utf-8')
