@@ -18,7 +18,7 @@ import sys
 SEED =  19963
 # load data
 filename='C:\\Users\\joaor\\Desktop\\Databases\\' + sys.argv[1]
-#---filesalve='C:\\Users\\joaor\\Desktop\\TCC\\Result\\' + sys.argv[2]
+filesalve='C:\\Users\\joaor\\Desktop\\TCC\\Result\\' + sys.argv[2]
 #filename='/media/Lun02_Raid0/joaob/'+sys.argv[1]
 #filesalve='Result/'+sys.argv[2]
 #perg = ['CountPalavrasBody','CountPalavrasTitle','Nfrasesbody','flesch','mediaCaracteresFrase','tamCod','interogacao','iniciaWH','subjectivity','polaridade','sumT','NpergFei','NresFei','Rotulo']
@@ -46,7 +46,7 @@ print(dataframe.groupby(['Rotulo']).size())
 
 
 #Lê o arquivo seque, que contem o seguencia de features mais importantes
-with open('C:\\Users\\joaor\\Desktop\\TCC\\Arq complementar\\seque3class20%.txt', 'r') as f:
+with open('C:\\Users\\joaor\\Desktop\\TCC\\Arq complementar\\ultimotsts.txt', 'r') as f:
     line=f.readlines()
     results=line[0].split(',')
     del results[-1]
@@ -64,7 +64,7 @@ print(aux)
 #--dataframe=dataframe[results]
 
 dict={}
-classes=[1,2,3]
+classes=[0,1]
 #classes=['C1','C2','C3','C4','C5','C6','C7']
 
 
