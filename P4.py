@@ -81,7 +81,7 @@ Perguntas = Perguntas.drop(columns=['TemCodigo'])
 Perguntas = Perguntas.drop(columns=['Minutos'])
 Perguntas = Perguntas.drop(columns=['CreationDate'])
 
-x_train, x_test, y_train, y_test = train_test_split(Perguntas.drop(columns=['Rotulo']),Perguntas['Rotulo'],test_size=0.20,random_state=SEED)
+x_train, x_test, y_train, y_test = train_test_split(Perguntas.drop(columns=['Rotulo']),Perguntas['Rotulo'],test_size=0.9999,random_state=SEED)
 
 x_test['Rotulo'] =  y_test
 
@@ -119,4 +119,4 @@ x_test[['N Palavras corpo','N Palavras Titulo','N frases corpo','flesch','Media 
 print(x_test.groupby(['Rotulo']).size())
 x_test = x_test[['N Palavras corpo','N Palavras Titulo','N frases corpo','flesch','Media Caracteres Frase','Tamanho Codigo','Interogacao','Inicia com WH','Subjetividade','Polaridade','N de tags','N perguntas Feitas','N respostas Feitas','Rotulo']]
 print(x_test.head())
-x_test.to_csv('C:\\Users\\joaor\\Desktop\\ultimotst.csv', sep='\t', encoding='utf-8')
+x_test.to_csv('C:\\Users\\joaor\\Desktop\\2classes.csv', sep='\t', encoding='utf-8')

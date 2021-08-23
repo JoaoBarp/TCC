@@ -9,7 +9,7 @@ from matplotlib import pyplot
 from sklearn.ensemble import RandomForestClassifier
 
 # load data
-filename = 'C:\\Users\\joaor\\Desktop\\Databases\\ultimotst.csv'
+filename = 'C:\\Users\\joaor\\Desktop\\Databases\\Data7class20%.csv'
 #perg = ['CountPalavrasBody','CountPalavrasTitle','Nfrasesbody','flesch_reading_ease','mediaCaracteresFrase','tamCod','interogacao','iniciaWH','subjectivity','polaridade','sumT','NpergFei','NresFei','Rotulo']
 perg2 = ['N Palavras corpo','N Palavras Titulo','N frases corpo','flesch','Media Caracteres Frase','Tamanho Codigo','Interogacao','Inicia com WH','Subjetividade','Polaridade','N de tags','N perguntas Feitas','N respostas Feitas','Rotulo']
 pg= ['N Palavras corpo','N Palavras Titulo','N frases corpo','flesch','Media Caracteres Frase','Tamanho Codigo','Interogacao','Inicia com WH','Subjetividade','Polaridade','N de tags','N perguntas Feitas','N respostas Feitas','Rotulo']
@@ -102,7 +102,7 @@ list=z.index.tolist()
 list=list[::-1]
 print(list)
 pyplot.show()
-arquivo = open('C:\\Users\\joaor\\Desktop\\TCC\\Arq complementar\\ultimotsts.txt', 'w+')
+arquivo = open('C:\\Users\\joaor\\Desktop\\TCC\\Arq complementar\\7class.txt', 'w+')
 for x in list:
     arquivo.writelines(x)
     arquivo.writelines(',')
