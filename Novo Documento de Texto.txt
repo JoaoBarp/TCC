@@ -1,0 +1,59 @@
+Ntags = Question Quality in Community Question Answering Forums: a survey
+CountPalavrasBody = Answering Questions about Unanswered Questions of Stack Overﬂow
+CountPalavrasTitle = Answering Questions about Unanswered Questions of Stack Overﬂow
+Nfrasesbody = 
+flesch_reading_ease = 
+mediaCaracteresFrase = 
+tamCod = Answering Questions about Unanswered Questions of Stack Overﬂow
+interogacao = 
+iniciaWH = 
+subjectivity = Analyzing and Predicting Not-Answered Questions in Community-Based Question Answering Services
+polaridade = Understanding Question Quality through Affective Aspect in Q&A Site
+NpergFei =  Analyzing and Predicting Not-Answered Questions in Community-Based Question Answering Services
+NresFei =  Analyzing and Predicting Not-Answered Questions in Community-Based Question Answering Services
+
+------------------------------------------------------------------------------------------------------------------------------
+Analyzing and Predicting Not-Answered Questions in Community-Based Question Answering Services
+------------------------------------------------------------------------------------------------------------------------------
+1. Question length: The length of a document might be
+always the first to come up. For the prediction task proposed
+here, question length somehow reflects whether the question
+is explained in detail, thus it may be predictive. Here, we use
+the number of words as question length.
+4. Asker history: Experienced users are more familiar with
+CQA service as well as the community and may be aware of
+what topics are popular; while newcomers probably wonder
+about what to ask or how to ask. Three features about the
+1274
+asker, the number of resolved questions asked, answers and
+best answers, are employed.
+
+6. Question subjectivity: One of the key characteristics of
+CQA is that there are quite many subjective questions (Li
+et al. 2008b). Subjective questions are those asking for answers with private states, e.g. personal interests, opinions,
+judgments; on the other hand, objective questions require
+authoritative information (Li et al. 2008a). Instead of classifying the questions and getting a binary label (Li et al.
+2008a), we propose to simply count the number of subjective
+words in a question to estimate subjectivity. The subjective
+word list is from (Wilson et al. 2005)
+
+------------------------------------------------------------------------------------------------------------------------------
+Answering Questions about Unanswered Questions of Stack Overﬂow
+------------------------------------------------------------------------------------------------------------------------------
+Too short, unclear, vague or hard to follow. One of
+the main reasons a question remains unanswered is that its
+meaning is not clear to the community members. Missing
+information and question format also contribute to not getting
+an answer. As well, sometimes the code provided with the
+question is hard to follow. The SO site specifically asks users
+to be precise when posting a question. However, our analysis
+shows that a large number of information seekers do not follow
+this guideline.
+
+Program specific without a program snippet or proper
+explanation. Often a member asks a question that is specific
+to a particular scenario in their program. Without seeing the
+code segment or any detailed explanation of that code it is very
+hard for another community member to answer the question.
+For example, in the following scenario, a community member
+is not provided the appropriate context.

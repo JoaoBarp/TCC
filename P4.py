@@ -53,6 +53,7 @@ print('Acabou...')
 #datetime.strptime('2015-12-31 23:59:59', "%Y-%m-%d %H:%M:%S")
 #print(Perguntas.head())
 
+'''
 Perguntas.loc[(Perguntas.Minutos >= 0) & (Perguntas.Minutos <= 480),'Rotulo'] = 1
 Perguntas.loc[(Perguntas.Minutos > 480) & (Perguntas.Minutos <= 960),'Rotulo'] = 2
 Perguntas.loc[(Perguntas.Minutos > 960) & (Perguntas.Minutos <= 1440),'Rotulo'] = 3
@@ -60,14 +61,12 @@ Perguntas.loc[(Perguntas.Minutos > 1440) & (Perguntas.Minutos < 2280),'Rotulo'] 
 Perguntas.loc[(Perguntas.Minutos > 2280) & (Perguntas.Minutos <= 5790),'Rotulo'] = 5
 Perguntas.loc[(Perguntas.Minutos > 5790),'Rotulo'] = 6
 Perguntas.loc[(Perguntas.Minutos == -1) ,'Rotulo'] = 7
-
-
 '''
+
+
 Perguntas.loc[(Perguntas.Minutos >= 0) & (Perguntas.Minutos <= 1440),'Rotulo'] = 1
-Perguntas.loc[(Perguntas.Minutos >1440) & (Perguntas.Minutos <= 10080),'Rotulo'] = 2
-Perguntas.loc[(Perguntas.Minutos > 10080),'Rotulo'] = 3
-Perguntas.loc[(Perguntas.Minutos == -1) ,'Rotulo'] = 4
-'''
+Perguntas.loc[(Perguntas.Minutos >1440) | (Perguntas.Minutos == -1),'Rotulo'] = 2
+
 
 #Perguntas=Perguntas[(Perguntas.Minutos > 1440) | (Perguntas.Minutos == -1)]
 #Perguntas.loc[(Perguntas.Minutos >= 0) & (Perguntas.Minutos <= 1440),'Rotulo'] = 0
@@ -81,7 +80,7 @@ Perguntas = Perguntas.drop(columns=['TemCodigo'])
 Perguntas = Perguntas.drop(columns=['Minutos'])
 Perguntas = Perguntas.drop(columns=['CreationDate'])
 
-x_train, x_test, y_train, y_test = train_test_split(Perguntas.drop(columns=['Rotulo']),Perguntas['Rotulo'],test_size=0.20,random_state=SEED)
+x_train, x_test, y_train, y_test = train_test_split(Perguntas.drop(columns=['Rotulo']),Perguntas['Rotulo'],test_size=0.01,random_state=SEED)
 
 x_test['Rotulo'] =  y_test
 
@@ -129,4 +128,4 @@ print(df2.to_string(index=False))
 
 x_test = x_test[['N Palavras corpo','N Palavras Titulo','N frases corpo','flesch','Media Caracteres Frase','Tamanho Codigo','Interogacao','Inicia com WH','Subjetividade','Polaridade','N de tags','N perguntas Feitas','N respostas Feitas','Rotulo']]
 print(x_test.head())
-x_test.to_csv('C:\\Users\\joaor\\Desktop\\7classesFF.csv', sep='\t', encoding='utf-8')
+x_test.to_csv('C:\\Users\\joaor\\Desktop\\2classesFF.csv', sep='\t', encoding='utf-8')
