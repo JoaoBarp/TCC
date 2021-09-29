@@ -20,8 +20,8 @@ from sklearn.neighbors import KNeighborsClassifier
 
 SEED =  19963
 # load data
-filename='C:\\Users\\joaor\\Desktop\\Databases\\' + sys.argv[1]
-filesalve='C:\\Users\\joaor\\Desktop\\TCC\\Result\\' + sys.argv[2]
+filename='C:\\Users\\joaor\\Desktop\\4Clas.csv'
+filesalve='C:\\Users\\joaor\\Desktop\\Result\\' + sys.argv[1]
 #filename='/media/Lun02_Raid0/joaob/'+sys.argv[1]
 #filesalve='Result/'+sys.argv[2]
 #perg = ['CountPalavrasBody','CountPalavrasTitle','Nfrasesbody','flesch','mediaCaracteresFrase','tamCod','interogacao','iniciaWH','subjectivity','polaridade','sumT','NpergFei','NresFei','Rotulo']
@@ -67,7 +67,7 @@ print(aux)
 #--dataframe=dataframe[results]
 
 dict={}
-classes=[1,2]
+classes=[1,2,3,4]
 #classes=['C1','C2','C3','C4','C5','C6','C7']
 
 

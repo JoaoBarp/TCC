@@ -80,7 +80,7 @@ Perguntas = Perguntas.drop(columns=['TemCodigo'])
 Perguntas = Perguntas.drop(columns=['Minutos'])
 Perguntas = Perguntas.drop(columns=['CreationDate'])
 
-x_train, x_test, y_train, y_test = train_test_split(Perguntas.drop(columns=['Rotulo']),Perguntas['Rotulo'],test_size=0.01,random_state=SEED)
+x_train, x_test, y_train, y_test = train_test_split(Perguntas.drop(columns=['Rotulo']),Perguntas['Rotulo'],test_size=0.999,random_state=SEED)
 
 x_test['Rotulo'] =  y_test
 
