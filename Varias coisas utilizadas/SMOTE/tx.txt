@@ -1,0 +1,1 @@
+Interogacao,Inicia com WH,Feriado/FimSem,N Palavras corpo,flesch,Tamanho Codigo,N frases corpo,N perguntas Feitas,N de tags,N Palavras Titulo,Subjetividade,N respostas Feitas,Polaridade,hora,Media Caracteres Frase,

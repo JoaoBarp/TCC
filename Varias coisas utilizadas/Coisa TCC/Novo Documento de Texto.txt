@@ -1,0 +1,8 @@
+- Reduzir numero de exemplos classe 1 no treino (3 classes)
+
+- Eliminar classe 1
+
+
+https://towardsdatascience.com/feature-engineering-for-machine-learning-3a5e293a5114
+
+https://www.kaggle.com/c/titanic/code

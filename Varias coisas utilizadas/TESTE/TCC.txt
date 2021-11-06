@@ -1,0 +1,8 @@
+Answering questions about unanswered questions of stack overflow - TB base
+
+Utilizou 3 classes:
+C1:1440 até 5570
+C2:5570 até 39285
+C3:Mais que 39285
+
+Utilizou Binning de igual frequencia para categorizar.(Classes com o mesmo numero de elementos)
